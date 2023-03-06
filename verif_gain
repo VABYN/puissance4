@@ -1,0 +1,49 @@
+int verif_gain(int grille[6][7], int joueur) {
+    int i, j;
+
+    // Vérification des lignes
+    for (i = 0; i < 6; i++) {
+        for (j = 0; j < 4; j++) {
+            if (grille[i][j] == joueur && grille[i][j+1] == joueur
+                && grille[i][j+2] == joueur && grille[i][j+3] == joueur) {
+                return 1;
+            }
+        }
+    }
+
+    // Vérification des colonnes
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 7; j++) {
+            if (grille[i][j] == joueur && grille[i+1][j] == joueur
+                && grille[i+2][j] == joueur && grille[i+3][j] == joueur) {
+                return 1;
+            }
+        }
+    }
+
+    // Vérification des diagonales
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 4; j++) {
+            if (grille[i][j] == joueur && grille[i+1][j+1] == joueur
+                && grille[i+2][j+2] == joueur && grille[i+3][j+3] == joueur) {
+                return 1;
+            }
+            if (grille[i][j+3] == joueur && grille[i+1][j+2] == joueur
+                && grille[i+2][j+1] == joueur && grille[i+3][j] == joueur) {
+                return 1;
+            }
+        }
+    }
+
+    // Si aucun gagnant n'est trouvé, retourne 0
+    return 0;
+}
+
+
+
+Pour pouvoir déterminer si un joueur a gagné la partie dans le jeu de puissance 4, il est nécessaire d'écrire une fonction en langage C appelée verif_gain. Cette fonction doit être capable de vérifier après chaque coup joué si le joueur a aligné 4 pions de même couleur ou de même symbole, une colonne ou une diagonale.
+Cette fonction prend en entrée la grille du jeu de puissance 4 sous forme d'un tableau de 6 lignes et 7 colonnes, ainsi que le numéro du joueur (1 ou 2). Elle retourne 1 si le joueur a gagné et 0 sinon.
+
+La fonction vérifie d'abord les lignes, puis les colonnes, et enfin les diagonales pour déterminer si le joueur a aligné 4 jetons de sa couleur. Si c'est le cas, la fonction retourne 1, sinon elle continue de parcourir la grille jusqu'à ce qu'un gagnant soit trouvé ou que tous les coups aient été joués.
+
+Cette fonction est donc essentielle pour déterminer si le jeu doit s'arrêter ou continuer, et permet aux joueurs de savoir s'ils ont remporté la partie ou non.
