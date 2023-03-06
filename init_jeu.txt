@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+void init_jeu(char *joueur1,char *joueur2,char *joueurquicommence,char *symbole1,char *symbole2){
+//demander e nom des utilisateurs
+    printf("Nom joueur 1 : ");
+    scanf("%s",joueur1);
+    printf("Nom joueur 2 : ");
+    scanf("%s",joueur2);
+//le nom de celui qui commence
+    printf("Le joueur qui commence est : ");
+    scanf("%s",joueurquicommence);
+/son symbole
+    printf("Quel est votre symbole : (O ou X) ? : ");
+    scanf("%s",symbole1);
+//attribut le second symbole au second joueur
+    while(strcmp(symbole1,"X")!= 0 && strcmp(symbole1,"O")!=0){
+        printf("REESSAYER!! Symbole invalide. Choisissez X ou O : ");
+        scanf("%s",symbole1);
+    }
+
+    if(strcmp(symbole1,"X")==0){
+        strcpy(symbole2,"O");
+    }else{
+        strcpy(symbole2,"X");
+
+    }
+//affiche les info
+    printf("Appuyer sur une touche pour continuer...\n");
+    getchar();
+    getchar();
+    printf("JEU DE PUISSANCE 4\n");
+
+    printf("Symbole de %s : %s\n",joueur1,symbole1);
+    printf("Symbole de %s : %s\n",joueur2,symbole2);
+    printf("C'est %s qui demarre le jeu\n",joueurquicommence);
+
+   
+}
+
+int main()
+{
+
+   char joueur1[30];
+   char joueur2[30];
+   char joueurquicommence[30];
+   char symbole1[2];
+   char symbole2[2];
+   init_jeu(joueur1,joueur2,joueurquicommence,symbole1,symbole2);
+    return 0;
+}
