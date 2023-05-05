@@ -8,7 +8,7 @@ int jouer_colonne(Grille* g, int joueur, int colonne, Joueur j1, Joueur j2) {
             return 1;
         }
     }
-    printf("La colonne est pleine, veuillez jouer ailleurs.\n");
+    printf("La colonne est deja pleine, veuillez jouer ailleurs.\n");
     return 0;
 }
 
